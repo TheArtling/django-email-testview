@@ -29,7 +29,7 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/theartling/django-email-testview/',
-    author='Martin Brochhaus'
+    author='Martin Brochhaus',
     author_email='mbrochh@gmail.com',
     install_requires=install_requires,
     extras_require={
