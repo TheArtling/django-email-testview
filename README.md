@@ -140,3 +140,43 @@ This means: Your email function name and the template name must be identical!
 You can now login as an admin, go to `/emails/test/` click at the email that you
 want to modify, see the email in your browser and start modifying the html and
 the css and see the results in your browser immediately.
+
+# Installation
+
+Install via pip:
+
+```
+pip install django-email-testview
+```
+
+Add to your `INSTALLED_APPS` settings:
+
+```py
+INSTALLED_APPS = [
+    # ...
+    'email_testview',
+]
+```
+
+Add to your main `urls.py`:
+
+```py
+urlpatterns = [
+    re_path(r'admin/', admin.site.urls),
+    # ...
+    re_path(r'emails/', include('email_testview.urls')),
+]
+```
+
+Add to your `local_settings.py`:
+
+```py
+ENVIRONMENT = 'local'
+```
+
+This is just another safeguard to make sure that this view can never be accessed
+on a production environment. Our production environments have this setting set
+to `prod` and when that is the case, then the view will return a 403 error..
+
+Create an `emails.py` file in one of your apps, as described above. Make sure
+that you are logged in as an admin user and visit `/emails/test/`.
