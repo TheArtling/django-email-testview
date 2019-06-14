@@ -43,13 +43,13 @@ templates in that app:
 
 ```
 contact
--- templates
------ contact
--------- email
------------ body
--------------- new_contact_request.html
------------ subject
--------------- new_contact_request.html
+    └── templates
+        └── contact
+            └── email
+                ├── body
+                │   └── new_contact_request.html
+                └── subject
+                    └── new_contact_request.html
 ```
 
 By convention, the files for the email `body` and the email `subject` must have
