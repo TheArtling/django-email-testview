@@ -1,0 +1,2 @@
+[run]
+omit = email_testview/tests/*

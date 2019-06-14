@@ -1,0 +1,6 @@
+ipdb
+fabric
+mixer
+pytest-cov
+pytest-django
+pytest
