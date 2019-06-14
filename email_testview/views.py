@@ -10,7 +10,7 @@ autodiscover_emails()
 
 
 class EmailsView(TemplateView):
-    template_name = 'emails/emails_view.html'
+    template_name = 'email_testview/emails_view.html'
 
     def dispatch(self, request, *args, **kwargs):
         if getattr(settings, 'ENVIRONMENT', 'prod').upper() == 'PROD':
