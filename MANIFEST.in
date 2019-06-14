@@ -1,2 +1,13 @@
 include LICENSE
 include README.md
+graft email_testview
+prune email_testview/__pycache__
+
+
+
+
+
+
+
+
+
