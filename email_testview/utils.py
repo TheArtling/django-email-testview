@@ -13,16 +13,23 @@ def send_mail(identifier, *email_args, **email_kwargs):
 
     if email_kwargs.get('from_email', None) is None:
         from_email = settings.FROM_EMAIL
+    else:
+        from_email = email_kwargs.get('from_email')
     if email_kwargs.get('recipients', None) is None:
         recipients = [x[1] for x in settings.MANAGERS]
+    else:
+        recipients = email_kwargs.get('recipients')
     if getattr(settings, 'EMAIL_DEBUG', False):
         recipients = [settings.ADMINS[0][1]]
 
     context = email_kwargs.get('context')
-    subject = render_to_string(
-        f'{app_name}/email/subject/{email_name}.html', context=context)
-    html_message = render_to_string(
-        f'{app_name}/email/body/{email_name}.html', context=context)
+    subject = render_to_string(f'{app_name}/email/subject/{email_name}.html',
+                               context=context)
+    html_message = render_to_string(f'{app_name}/email/body/{email_name}.html',
+                                    context=context)
     plain_text = strip_tags(html_message)
-    mail.send_mail(
-        subject, plain_text, from_email, recipients, html_message=html_message)
+    mail.send_mail(subject,
+                   plain_text,
+                   from_email,
+                   recipients,
+                   html_message=html_message)
